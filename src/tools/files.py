@@ -1,6 +1,19 @@
 
 
 
+def read_lines(file_path):
+    lines = []
+
+    with open(file_path) as file:
+        for line in file:
+            line = line.strip()
+            if line:
+                lines.append(line)
+
+    return lines
+
+
+
 def read_ints(file_path):
     ints = []
 
