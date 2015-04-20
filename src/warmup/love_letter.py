@@ -5,6 +5,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '../tools'))
 import files
 
 
+
 def palindrome(alpha, string):
     length = len(string)
     count  = 0
