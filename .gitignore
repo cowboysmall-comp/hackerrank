@@ -1,0 +1,15 @@
+**/.DS_STORE
+
+**/*.exe
+
+**/*.pyc
+**/*.py[cod]
+
+**/*.zip
+
+*.egg
+*.egg-info
+eggs
+develop-eggs
+
+out*
