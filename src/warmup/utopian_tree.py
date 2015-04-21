@@ -5,6 +5,33 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '../tools'))
 import files
 
 
+'''
+    submitted code:
+
+    def grow(cycles):
+        height = 1
+
+        for i in range(cycles):
+            if i % 2 == 0:
+                height *= 2
+            else:
+                height += 1
+                
+        return height
+
+
+    def main():
+        N = int(input())
+
+        for _ in range(N):
+            print(grow(int(input())))
+
+
+    if __name__ == "__main__":
+        main()
+
+'''
+
 
 def grow(cycles):
     height = 1

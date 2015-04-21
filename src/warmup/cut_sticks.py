@@ -7,6 +7,39 @@ import files
 from collections import defaultdict
 
 
+'''
+    submitted code:
+
+    def cut_sticks(sticks):
+        cuts = []
+
+        while sticks:
+            smin   = min(sticks)
+            s1     = []
+
+            for s in sticks:
+                cut = s - smin
+                if cut > 0:
+                    s1.append(cut)
+
+            cuts.append(len(sticks))
+            sticks = s1
+
+        return cuts
+
+
+    def main():
+        input()
+        S = [int(val) for val in input().split()]
+
+        print('\n'.join(str(c) for c in cut_sticks(S)))
+
+
+    if __name__ == "__main__":
+        main()
+
+'''
+
 
 def cut_sticks(sticks):
     cuts = []

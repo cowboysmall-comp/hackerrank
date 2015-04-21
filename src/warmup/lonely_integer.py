@@ -7,6 +7,28 @@ import files
 from collections import defaultdict
 
 
+'''
+    submitted code:
+
+    def lonely_integer(array):
+        counter = defaultdict(int)
+        
+        for value in array:
+            counter[value] += 1
+
+        return [key for key in counter if counter[key] == 1][0]
+
+
+    def main():
+        input()
+        print(lonely_integer(map(int, input().strip().split(" "))))
+
+
+    if __name__ == '__main__':
+        main()
+
+'''
+
 
 def lonely_integer(array):
     counter = defaultdict(int)

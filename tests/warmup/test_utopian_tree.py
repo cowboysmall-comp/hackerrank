@@ -8,6 +8,7 @@ class TestUtopianTree(unittest.TestCase):
     def test_basic_cases(self):
         self.assertEqual(grow(0), 1)
         self.assertEqual(grow(1), 2)
+        self.assertEqual(grow(3), 6)
         self.assertEqual(grow(4), 7)
 
 
