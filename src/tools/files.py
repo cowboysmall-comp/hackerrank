@@ -14,6 +14,12 @@ def read_lines(file_path):
 
 
 
+def read_int(file_path):
+    with open(file_path) as file:
+        return int(file.readline().strip())
+
+
+
 def read_ints(file_path):
     ints = []
 
