@@ -8,7 +8,7 @@ import files
 '''
     submitted code:
 
-    def count_digits(N):
+    def count_digit_dividers(N):
         count = 0
         value = N
 
@@ -27,7 +27,7 @@ import files
         T = int(input())
 
         for _ in range(T):
-            print(count_digits(int(input())))
+            print(count_digit_dividers(int(input())))
 
 
     if __name__ == "__main__":
@@ -36,7 +36,7 @@ import files
 '''
 
 
-def count_digits(N):
+def count_digit_dividers(N):
     count = 0
     value = N
 
@@ -56,7 +56,7 @@ def main(argv):
     T     = lines[0]
 
     for N in lines[1:]:
-        print(count_digits(N))
+        print(count_digit_dividers(N))
 
 
 if __name__ == "__main__":
