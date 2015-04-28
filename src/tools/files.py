@@ -19,6 +19,19 @@ def read_lines(file_path):
 
 
 
+def read_lines_of_words(file_path):
+    lines = []
+
+    with open(file_path) as file:
+        for line in file:
+            line = line.strip()
+            if line:
+                lines.append([word for word in line.split()])
+
+    return lines
+
+
+
 def read_int(file_path):
     with open(file_path) as file:
         return int(file.readline().strip())
