@@ -6,7 +6,7 @@ import files
 
 
 '''
-    submitted code: None - Python code too slow...
+    submitted code: Python code too slow...
 
     def maximum_length(P, Q, S):
         m = len(P)
@@ -45,19 +45,31 @@ import files
 
         return M
 
+
+    def main():
+        T = int(input())
+
+        for _ in range(T):
+            S, P, Q = [v for v in input().split()]
+            print(maximum_length(P, Q, int(S)))
+
+
+    if __name__ == "__main__":
+        main()
+
 '''
 
 
 def calculate_length(P, Q, S):
     m = min(len(P), len(Q))
 
-    R = [0]
+    R = [-1]
     M = 0
     c = 0
 
     for i in range(m):
         if P[i] != Q[i]:
-            R.append(i + 1)
+            R.append(i)
             c += 1
 
             if c > S:
@@ -75,7 +87,11 @@ def maximum_length(P, Q, S):
     m = len(P)
     M = 0
 
-    for i in range(m):
+    L = calculate_length(P, Q, S)
+    if L > M:
+        M = L
+
+    for i in range(1, m):
         if m - i <= M:
             break
 
@@ -88,7 +104,6 @@ def maximum_length(P, Q, S):
             M = L
 
     return M
-
 
 
 def main(argv):
