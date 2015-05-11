@@ -62,4 +62,3 @@ def read_lines_of_ints(file_path):
 
     return lines
 
-
