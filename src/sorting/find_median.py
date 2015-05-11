@@ -22,19 +22,19 @@ import files
         return index
 
 
-    def median(A):
-        k = len(A) // 2
+    def median(array):
+        k = len(array) // 2
 
         while True:
-            p = partition(A, 0, len(A) - 1)
+            p = partition(array, 0, len(array) - 1)
 
             if k < p:
-                A = A[:p]
+                array = array[:p]
             elif k > p:
-                A  = A[p + 1:]
+                array  = array[p + 1:]
                 k -= p + 1
             else:
-                return A[p]
+                return array[p]
 
 
     def main():
@@ -64,19 +64,19 @@ def partition(array, lower, upper):
     return index
 
 
-def median(A):
-    k = len(A) // 2
+def median(array):
+    k = len(array) // 2
 
     while True:
-        p = partition(A, 0, len(A) - 1)
+        p = partition(array, 0, len(array) - 1)
 
         if k < p:
-            A = A[:p]
+            array = array[:p]
         elif k > p:
-            A  = A[p + 1:]
+            array  = array[p + 1:]
             k -= p + 1
         else:
-            return A[p]
+            return array[p]
 
 
 def main(argv):
