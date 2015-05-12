@@ -4,51 +4,48 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '../tools'))
 
 import files
 
+from enum import Enum
+
 
 '''
     submitted code:
 
+    def almost_sorted(array):
+        increasing = []
+        decreasing = []
+
+        def fits(start, end):
+            return array[end - 1] <= array[start] <= array[end + 1]
+
+        for i in range(1, len(array) - 1):
+            if array[i - 1] < array[i] > array[i + 1]:
+                increasing.append(i)
+            if array[i - 1] > array[i] < array[i + 1]:
+                decreasing.append(i)
+
+        if len(increasing) == 0 and len(decreasing) == 0:
+            return Sorted.yes, None
+
+        if len(increasing) == 1 and len(decreasing) == 1:
+            if fits(increasing[0], decreasing[0]) and fits(decreasing[0], increasing[0]):
+                return Sorted.swap if decreasing[0] - increasing[0] <= 2 else Sorted.reverse, (increasing[0], decreasing[0])
+
+        if len(increasing) == 2 and len(decreasing) == 2:
+            if fits(increasing[0], decreasing[1]) and fits(decreasing[1], increasing[0]):
+                return Sorted.swap, (increasing[0], decreasing[1])
+
+        return Sorted.no, None
+
+
     def main():
         n     = int(input())
         d     = [-1] + [int(i) for i in input().split()] + [1000001]
-        start = []
-        end   = []
+        s, p  = almost_sorted(d)
 
-        rev   = False
-        swap  = False
-        srtd  = False
-
-        def fits(start, end):
-            return d[end - 1] <= d[start] <= d[end + 1]
-
-        for i in range(1, len(d) - 1):
-            if d[i] > d[i - 1] and d[i] > d[i + 1]:
-                start.append(i)
-            if d[i] < d[i - 1] and d[i] < d[i + 1]:
-                end.append(i)
-
-        if len(start) == 0 and len(end) == 0:
-            srtd = True
-
-        if len(start) == 1 and len(end) == 1:
-            if fits(start[0], end[0]) and fits(end[0], start[0]):
-                if 4 <= len(d) <= 5:
-                    swap = True
-                else:
-                    rev  = True
-
-        if len(start) == 2 and len(end) == 2:
-            if fits(start[0], end[1]) and fits(end[1], start[0]):
-                swap = True
-
-        if srtd:
+        if s is not Sorted.no:
             print('yes')
-        elif rev:
-            print('yes')
-            print('reverse %s %s' % (start[0], end[0]))
-        elif swap:
-            print('yes')
-            print('swap %s %s' % (start[0], end[-1]))
+            if p:
+                print('%s %s %s' % (s.name, p[0], p[1]))
         else:
             print('no')
 
@@ -58,49 +55,46 @@ import files
 
 '''
 
+Sorted = Enum('Sorted', 'yes reverse swap no')
 
-def main(argv):
-    lines   = files.read_lines_of_ints(argv[0])
-    n       = lines[0][0]
-    d       = [-1] + lines[1] + [1000001]
-    start   = []
-    end     = []
 
-    rev     = False
-    swap    = False
-    srtd    = False
+def almost_sorted(array):
+    increasing = []
+    decreasing = []
 
     def fits(start, end):
-        return d[end - 1] <= d[start] <= d[end + 1]
+        return array[end - 1] <= array[start] <= array[end + 1]
 
-    for i in range(1, len(d) - 1):
-        if d[i] > d[i - 1] and d[i] > d[i + 1]:
-            start.append(i)
-        if d[i] < d[i - 1] and d[i] < d[i + 1]:
-            end.append(i)
+    for i in range(1, len(array) - 1):
+        if array[i - 1] < array[i] > array[i + 1]:
+            increasing.append(i)
+        if array[i - 1] > array[i] < array[i + 1]:
+            decreasing.append(i)
 
-    if len(start) == 0 and len(end) == 0:
-        srtd = True
+    if len(increasing) == 0 and len(decreasing) == 0:
+        return Sorted.yes, None
 
-    if len(start) == 1 and len(end) == 1:
-        if fits(start[0], end[0]) and fits(end[0], start[0]):
-            if 4 <= len(d) <= 5:
-                swap = True
-            else:
-                rev  = True
+    if len(increasing) == 1 and len(decreasing) == 1:
+        if fits(increasing[0], decreasing[0]) and fits(decreasing[0], increasing[0]):
+            return Sorted.swap if decreasing[0] - increasing[0] <= 2 else Sorted.reverse, (increasing[0], decreasing[0])
 
-    if len(start) == 2 and len(end) == 2:
-        if fits(start[0], end[1]) and fits(end[1], start[0]):
-            swap = True
+    if len(increasing) == 2 and len(decreasing) == 2:
+        if fits(increasing[0], decreasing[1]) and fits(decreasing[1], increasing[0]):
+            return Sorted.swap, (increasing[0], decreasing[1])
 
-    if srtd:
+    return Sorted.no, None
+
+
+def main(argv):
+    lines = files.read_lines_of_ints(argv[0])
+    n     = lines[0][0]
+    d     = [-1] + lines[1] + [1000001]
+    s, p  = almost_sorted(d)
+
+    if s is not Sorted.no:
         print('yes')
-    elif rev:
-        print('yes')
-        print('reverse %s %s' % (start[0], end[0]))
-    elif swap:
-        print('yes')
-        print('swap %s %s' % (start[0], end[-1]))
+        if p:
+            print('%s %s %s' % (s.name, p[0], p[1]))
     else:
         print('no')
 
