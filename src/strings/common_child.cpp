@@ -7,7 +7,7 @@ using namespace std;
 /*
     [ jerry@pantagruel hackerrank ] $ clang++ -O3 -msse2 -o common_child src/strings/common_child.cpp
 
-    [ jerry@pantagruel hackerrank ] $ time ./common_child < data/strings/common_child_05.txt 
+    [ jerry@pantagruel hackerrank ] $ time ./common_child < data/strings/common_child_05.txt
 
     1417
 
@@ -30,22 +30,16 @@ int common_child(string &s, string &t) {
 
         for(int j = 1; j < n + 1; j++) {
 
-            if (s[i - 1] == t[j - 1]) {
-
+            if (s[i - 1] == t[j - 1])
                 C[j] = P[j - 1] + 1;
-
-            } else {
-
+            else
                 C[j] = max(C[j - 1], P[j]);
-            }
         }
 
         P = C;
 
-        if (i < m) {
-
+        if (i < m)
             vector<int> C(n + 1, 0);
-        }
     }
 
     return C[n];

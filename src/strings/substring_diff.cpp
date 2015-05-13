@@ -7,7 +7,7 @@ using namespace std;
 /*
     [ jerry@pantagruel hackerrank ] $ clang++ -O3 -msse2 -o substring_diff src/strings/substring_diff.cpp
 
-    [ jerry@pantagruel hackerrank ] $ time ./substring_diff < data/strings/substring_diff_02.txt 
+    [ jerry@pantagruel hackerrank ] $ time ./substring_diff < data/strings/substring_diff_02.txt
 
     256
     13
@@ -23,6 +23,7 @@ using namespace std;
     real    0m0.397s
     user    0m0.338s
     sys     0m0.047s
+
 */
 
 
@@ -31,13 +32,11 @@ int maximum_length(string &P, string &Q, int S) {
     int m = P.length();
 
     vector< vector<int> > T(m, vector<int>(m));
-
     for(int i = 0; i < m; i++)
         for(int j = 0; j < m; j++)
             T[i][j] = P[i] != Q[j];
 
     int M = -1;
-
     for(int i = 0; i < m; i++) {
 
         if (m - i <= M)
