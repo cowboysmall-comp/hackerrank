@@ -7,7 +7,7 @@ using namespace std;
 /*
     [ jerry@pantagruel hackerrank ] $ clang++ -O3 -msse2 -o almost_sorted src/sorting/almost_sorted.cpp
 
-    [ jerry@pantagruel hackerrank ] $ time ./almost_sorted < data/sorting/almost_sorted_01.txt 
+    [ jerry@pantagruel hackerrank ] $ time ./almost_sorted < data/sorting/almost_sorted_01.txt
 
     yes
     swap 1 2
