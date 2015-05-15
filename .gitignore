@@ -11,5 +11,3 @@
 *.egg-info
 eggs
 develop-eggs
-
-out*
