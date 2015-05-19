@@ -24,9 +24,9 @@ from collections import defaultdict
 
     def main():
         n = int(input())
-        A = int([int(i) for i in input().split()])
+        A = [int(i) for i in input().split()]
         m = int(input())
-        B = int([int(i) for i in input().split()])
+        B = [int(i) for i in input().split()]
 
         print(' '.join(str(val) for val in missing_numbers(A, B)))
 
