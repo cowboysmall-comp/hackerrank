@@ -4,8 +4,6 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '../tools'))
 
 import files
 
-from collections import deque
-
 
 '''
     submitted code:
