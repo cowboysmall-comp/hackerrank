@@ -10,13 +10,9 @@ from collections import deque
 '''
     submitted code:
 
-    def traverse_forest(N, M, F):
-        V      = [[False for _ in range(M)] for _ in range(N)]
-        B      = [[None for _ in range(M)] for _ in range(N)]
-
+    def count_decisions(N, M, F):
         start  = None
         finish = None
-
 
         for i in range(N):
             for j in range(M):
@@ -25,62 +21,36 @@ from collections import deque
                 if F[i][j] == '*':
                     finish = (i, j)
 
-
-        P      = [finish]
-        Q      = deque([start])
-
+        W = [[0 for _ in range(M)] for _ in range(N)]
+        Q = [start]
+        V = []
 
         while Q and finish not in Q:
-            p = Q.popleft()
+            p = Q.pop()
+            V.append(p)
 
+            R = []
             for offset in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
                 q = (p[0] + offset[0], p[1] + offset[1])
-                if 0 <= q[0] <= N - 1 and 0 <= q[1] <= M - 1 and F[q[0]][q[1]] != 'X':
-                    if not V[q[0]][q[1]]:
-                        V[q[0]][q[1]] = True
-                        B[q[0]][q[1]] = p
-                        Q.append(q)
+                if 0 <= q[0] <= N - 1 and 0 <= q[1] <= M - 1 and F[q[0]][q[1]] != 'X' and q not in V:
+                    Q.append(q)
+                    R.append(q)
 
+            D = 1 if len(R) > 1 else 0
+            for r in R:
+                W[r[0]][r[1]] = W[p[0]][p[1]] + D
 
-
-        while P[-1] != start:
-            c = P[-1]
-            P.append(B[c[0]][c[1]])
-
-
-
-        P      = P[::-1]
-        V      = [[False for _ in range(M)] for _ in range(N)]
-
-        wand   = 0
-
-        for p in P[:-1]:
-            count         = 0
-            V[p[0]][p[1]] = True
-
-            for offset in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
-                q = (p[0] + offset[0], p[1] + offset[1])
-                if 0 <= q[0] <= N - 1 and 0 <= q[1] <= M - 1 and F[q[0]][q[1]] != 'X':
-                    if not V[q[0]][q[1]]:
-                        count += 1
-
-            if count > 1:
-                wand += 1
-
-
-        return wand
-
+        return W[finish[0]][finish[1]]
 
 
     def main():
-        T     = int(input())
+        T = int(input())
 
         for _ in range(T):
             N, M = [int(i) for i in input().split()]
             F    = [[c for c in input()] for _ in range(N)]
             K    = int(input())
-            print('Impressed' if traverse_forest(N, M, F) == K else 'Oops!')
-
+            print('Impressed' if count_decisions(N, M, F) == K else 'Oops!')
 
 
     if __name__ == "__main__":
@@ -89,13 +59,9 @@ from collections import deque
 '''
 
 
-def traverse_forest(N, M, F):
-    V      = [[False for _ in range(M)] for _ in range(N)]
-    B      = [[None for _ in range(M)] for _ in range(N)]
-
+def count_decisions(N, M, F):
     start  = None
     finish = None
-
 
     for i in range(N):
         for j in range(M):
@@ -104,50 +70,26 @@ def traverse_forest(N, M, F):
             if F[i][j] == '*':
                 finish = (i, j)
 
-
-    P      = [finish]
-    Q      = deque([start])
-
+    W = [[0 for _ in range(M)] for _ in range(N)]
+    Q = [start]
+    V = []
 
     while Q and finish not in Q:
-        p = Q.popleft()
+        p = Q.pop()
+        V.append(p)
 
+        R = []
         for offset in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
             q = (p[0] + offset[0], p[1] + offset[1])
-            if 0 <= q[0] <= N - 1 and 0 <= q[1] <= M - 1 and F[q[0]][q[1]] != 'X':
-                if not V[q[0]][q[1]]:
-                    V[q[0]][q[1]] = True
-                    B[q[0]][q[1]] = p
-                    Q.append(q)
+            if 0 <= q[0] <= N - 1 and 0 <= q[1] <= M - 1 and F[q[0]][q[1]] != 'X' and q not in V:
+                Q.append(q)
+                R.append(q)
 
+        D = 1 if len(R) > 1 else 0
+        for r in R:
+            W[r[0]][r[1]] = W[p[0]][p[1]] + D
 
-    while P[-1] != start:
-        c = P[-1]
-        P.append(B[c[0]][c[1]])
-
-
-    P      = P[::-1]
-    V      = [[False for _ in range(M)] for _ in range(N)]
-
-
-    wand   = 0
-
-    for p in P[:-1]:
-        count         = 0
-        V[p[0]][p[1]] = True
-
-        for offset in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
-            q = (p[0] + offset[0], p[1] + offset[1])
-            if 0 <= q[0] <= N - 1 and 0 <= q[1] <= M - 1 and F[q[0]][q[1]] != 'X':
-                if not V[q[0]][q[1]]:
-                    count += 1
-
-        if count > 1:
-            wand += 1
-
-
-    return wand
-
+    return W[finish[0]][finish[1]]
 
 
 def main(argv):
@@ -156,14 +98,13 @@ def main(argv):
 
     count = 1
     for _ in range(T):
-        N, M = [int(i) for i in lines[count].split()]
+        N, M   = [int(i) for i in lines[count].split()]
         count += 1
-        F    = [[c for c in line] for line in lines[count:count + N]]
+        F      = [[c for c in line] for line in lines[count:count + N]]
         count += N
-        K    = int(lines[count])
+        K      = int(lines[count])
         count += 1
-        print('Impressed' if traverse_forest(N, M, F) == K else 'Oops!')
-
+        print('Impressed' if count_decisions(N, M, F) == K else 'Oops!')
 
 
 if __name__ == "__main__":
