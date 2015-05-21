@@ -53,6 +53,33 @@ import files
     if __name__ == "__main__":
         main()
 
+
+    alternative, brute-force, approach:
+
+    def count_inversions(A):
+        l = len(A)
+        c = 0
+
+        for i in range(len(A) - 1):
+            for j in range(i + 1, len(A)):
+                if A[i] > A[j]:
+                    c += 1
+
+        return c
+
+
+    def main():
+        T = int(input())
+
+        for _ in range(T):
+            N = int(input())
+            a = [int(i) for i in input().split()]
+            print(count_inversions(a))
+
+
+    if __name__ == "__main__":
+        main()
+
 '''
 
 
