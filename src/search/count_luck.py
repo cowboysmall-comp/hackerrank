@@ -19,13 +19,13 @@ import files
                 if F[i][j] == '*':
                     finish = (i, j)
 
-        W = [[0 for _ in range(M)] for _ in range(N)]
+        W = {start: 0}
         Q = [start]
-        V = []
+        V = set()
 
         while Q and finish not in Q:
             p = Q.pop()
-            V.append(p)
+            V.add(p)
 
             R = []
             for offset in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
@@ -36,9 +36,9 @@ import files
 
             D = 1 if len(R) > 1 else 0
             for r in R:
-                W[r[0]][r[1]] = W[p[0]][p[1]] + D
+                W[r] = W[p] + D
 
-        return W[finish[0]][finish[1]]
+        return W[finish]
 
 
     def main():
@@ -68,13 +68,13 @@ def count_decisions(N, M, F):
             if F[i][j] == '*':
                 finish = (i, j)
 
-    W = [[0 for _ in range(M)] for _ in range(N)]
+    W = {start: 0}
     Q = [start]
-    V = []
+    V = set()
 
     while Q and finish not in Q:
         p = Q.pop()
-        V.append(p)
+        V.add(p)
 
         R = []
         for offset in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
@@ -85,9 +85,9 @@ def count_decisions(N, M, F):
 
         D = 1 if len(R) > 1 else 0
         for r in R:
-            W[r[0]][r[1]] = W[p[0]][p[1]] + D
+            W[r] = W[p] + D
 
-    return W[finish[0]][finish[1]]
+    return W[finish]
 
 
 def main(argv):
@@ -98,7 +98,7 @@ def main(argv):
     for _ in range(T):
         N, M   = [int(i) for i in lines[count].split()]
         count += 1
-        F      = [[c for c in line] for line in lines[count:count + N]]
+        F      = lines[count:count + N]
         count += N
         K      = int(lines[count])
         count += 1
