@@ -10,20 +10,20 @@ import bisect
 '''
     submitted code:
 
-    def maximize_sum(A, M):
+    def maximise_sum(A, N, M):
         B = [0, M]
 
         S = 0
         V = 0
 
-        for a in A:
-            V += a
+        for i in range(N):
+            V += A[i]
             V %= M
 
-            i = bisect.bisect(B, V)
-            S = max(S, (V - B[i] + M) % M)
+            j = bisect.bisect(B, V)
+            S = max(S, (V - B[j] + M) % M)
 
-            B.insert(i, V)
+            B.insert(j, V)
 
         return S
 
@@ -34,7 +34,7 @@ import bisect
         for _ in range(T):
             N, M = [int(i) for i in input().split()]
             A    = [int(i) for i in input().split()]
-            print(maximize_sum(A, M))
+            print(maximise_sum(A, N, M))
 
 
     if __name__ == "__main__":
@@ -42,20 +42,20 @@ import bisect
 
 '''
 
-def maximize_sum(A, M):
+def maximise_sum(A, N, M):
     B = [0, M]
 
     S = 0
     V = 0
 
-    for a in A:
-        V += a
+    for i in range(N):
+        V += A[i]
         V %= M
 
-        i = bisect.bisect(B, V)
-        S = max(S, (V - B[i] + M) % M)
+        j = bisect.bisect(B, V)
+        S = max(S, (V - B[j] + M) % M)
 
-        B.insert(i, V)
+        B.insert(j, V)
 
     return S
 
@@ -67,7 +67,7 @@ def main(argv):
     for i in range(T):
         N, M = lines[(2 * i) + 1]
         A    = lines[(2 * i) + 2]
-        print(maximize_sum(A, M))
+        print(maximise_sum(A, N, M))
 
 
 if __name__ == "__main__":

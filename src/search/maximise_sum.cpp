@@ -1,4 +1,5 @@
 #include <set>
+#include <vector>
 #include <iostream>
 
 using namespace std;
@@ -22,49 +23,50 @@ using namespace std;
 */
 
 
-int main() {
+long long maximise_sum(vector<long long> & A, long long N, long long M) {
 
     set<long long> B;
     set<long long>::iterator I;
+
+    B.insert(0);
+    B.insert(M);
+
+    long long S = 0;
+    long long V = 0;
+
+    for (long long i = 0; i < N; i++) {
+
+        V += A[i];
+        V %= M;
+
+        I = B.lower_bound(V);
+        while (*I == V)
+            ++I;
+        S = max(S, (V - *I + M) % M);
+
+        B.insert(V);
+    }
+
+    return S;
+}
+
+
+int main() {
 
     long long T;
     long long N;
     long long M;
 
-    long long a;
-
-    long long S;
-    long long V;
-
     cin >> T;
 
-    for (int i = 0; i < T; i++) {
+    for (long long i = 0; i < T; i++) {
 
         cin >> N >> M;
 
-        B.insert(0);
-        B.insert(M);
+        vector<long long> A(N);
+        for (long long j = 0; j < N; j++)
+            cin >> A[j];
 
-        S = 0;
-        V = 0;
-
-        for (int j = 0; j < N; j++) {
-
-            cin >> a;
-
-            V += a;
-            V %= M;
-
-            I = B.lower_bound(V);
-            while (*I == V) 
-                ++I;
-            S = max(S, (V - *I + M) % M);
-
-            B.insert(V);
-        }
-
-        cout << S << endl;
-
-        B.clear();
+        cout << maximise_sum(A, N, M) << endl;
     }
 }
