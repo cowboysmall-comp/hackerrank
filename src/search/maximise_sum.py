@@ -20,10 +20,10 @@ import bisect
             V += a
             V %= M
 
-            S = max(S, (V - B[bisect.bisect(B, V)]) % M)
+            i = bisect.bisect(B, V)
+            S = max(S, (V - B[i] + M) % M)
 
-            bisect.insort(B, V)
-            bisect.insort(B, V + M)
+            B.insert(i, V)
 
         return S
 
@@ -34,7 +34,7 @@ import bisect
         for _ in range(T):
             N, M = [int(i) for i in input().split()]
             A    = [int(i) for i in input().split()]
-            print(maximize_sum(A, N, M))
+            print(maximize_sum(A, M))
 
 
     if __name__ == "__main__":
@@ -52,10 +52,11 @@ def maximize_sum(A, M):
         V += a
         V %= M
 
-        S = max(S, (V - B[bisect.bisect(B, V)]) % M)
+        i = bisect.bisect(B, V)
 
-        bisect.insort(B, V)
-        bisect.insort(B, V + M)
+        S = max(S, (V - B[i] + M) % M)
+
+        B.insert(i, V)
 
     return S
 

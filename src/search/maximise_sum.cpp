@@ -15,9 +15,9 @@ using namespace std;
     10000968078477
     10000320856505
 
-    real    0m1.138s
-    user    0m1.041s
-    sys     0m0.064s
+    real    0m0.720s
+    user    0m0.683s
+    sys     0m0.027s
 
 */
 
@@ -56,14 +56,11 @@ int main() {
             V %= M;
 
             I = B.lower_bound(V);
-
-            if (*I == V)
-                ++I;
+            while (*I == V) ++I;
 
             S = max(S, (V - *I + M) % M);
 
             B.insert(V);
-            B.insert(V + M);
         }
 
         cout << S << endl;
