@@ -56,8 +56,8 @@ int main() {
             V %= M;
 
             I = B.lower_bound(V);
-            while (*I == V) ++I;
-
+            while (*I == V) 
+                ++I;
             S = max(S, (V - *I + M) % M);
 
             B.insert(V);

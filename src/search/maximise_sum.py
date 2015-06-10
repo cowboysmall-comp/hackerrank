@@ -53,7 +53,6 @@ def maximize_sum(A, M):
         V %= M
 
         i = bisect.bisect(B, V)
-
         S = max(S, (V - B[i] + M) % M)
 
         B.insert(i, V)
