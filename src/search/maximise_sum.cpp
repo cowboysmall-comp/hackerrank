@@ -39,6 +39,12 @@ long long maximise_sum(vector<long long> & A, long long N, long long M) {
         V += A[i];
         V %= M;
 
+        // the case of P[j] = 0, max(S, V) is
+        // unnecessary, because of the presence 
+        // of M in B - i.e. M % M == 0
+        // so it is handled automatically
+        // S = max(S, V);
+
         I = B.lower_bound(V);
         while (*I == V)
             ++I;
