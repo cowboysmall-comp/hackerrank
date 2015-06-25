@@ -12,12 +12,12 @@ import files
         S = []
 
         for i in range(N):
-            R = []
+            R = ''
             for j in range(N):
                 if N - i - 1 <= j:
-                    R.append('#')
+                    R += '#'
                 else:
-                    R.append(' ')
+                    R += ' '
             S.append(R)
 
         return S
@@ -26,7 +26,7 @@ import files
     def main():
         N = int(input())
 
-        print('\n'.join('%s' % ''.join(row) for row in staircase(N)))
+        print('\n'.join('%s' % row for row in staircase(N)))
 
 
     if __name__ == "__main__":
@@ -39,12 +39,12 @@ def staircase(N):
     S = []
 
     for i in range(N):
-        R = []
+        R = ''
         for j in range(N):
             if N - i - 1 <= j:
-                R.append('#')
+                R += '#'
             else:
-                R.append(' ')
+                R += ' '
         S.append(R)
 
     return S
@@ -53,7 +53,7 @@ def staircase(N):
 def main(argv):
     N = files.read_int(argv[0])
 
-    print('\n'.join('%s' % ''.join(row) for row in staircase(N)))
+    print('\n'.join('%s' % row for row in staircase(N)))
 
 
 if __name__ == "__main__":
