@@ -21,10 +21,6 @@ import math
 
 '''
 
-def extra_long_factorials(N):
-    return 
-
-
 def main(argv):
     N = files.read_int(argv[0])
 
