@@ -11,21 +11,18 @@ from collections import defaultdict, deque
     submitted code:
 
     def breadth_first_search(S, N, G, L = 1):
-        E = defaultdict(int)
         C = {}
 
         for n in range(1, N + 1):
             C[n] = -1
 
-        E[S] += 1
         C[S]  = 0
         Q     = deque([S])
 
         while Q:
             n = Q.popleft()
             for h in G[n]:
-                if E[h] == 0:
-                    E[h] += 1
+                if C[h] == -1:
                     C[h]  = C[n] + L
                     Q.append(h)
 
@@ -58,21 +55,18 @@ from collections import defaultdict, deque
 
 
 def breadth_first_search(S, N, G, L = 1):
-    E = defaultdict(int)
     C = {}
 
     for n in range(1, N + 1):
         C[n] = -1
 
-    E[S] += 1
     C[S]  = 0
     Q     = deque([S])
 
     while Q:
         n = Q.popleft()
         for h in G[n]:
-            if E[h] == 0:
-                E[h] += 1
+            if C[h] == -1:
                 C[h]  = C[n] + L
                 Q.append(h)
 
