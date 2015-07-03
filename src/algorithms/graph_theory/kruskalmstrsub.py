@@ -88,7 +88,7 @@ def kruskal(S, N, E):
     for e in sorted(E, key = operator.itemgetter(0, 1)):
         if not uf.connected(e[2], e[3]):
             uf.union(e[2], e[3])
-            T.append((e[2], e[3], e[0]))
+            T.append(e[0])
 
     return T
 
@@ -105,7 +105,7 @@ def main(argv):
 
     S     = lines[M + 1][0]
 
-    print(sum(t[2] for t in kruskal(S, N, E)))
+    print(sum(kruskal(S, N, E)))
 
 
 if __name__ == "__main__":

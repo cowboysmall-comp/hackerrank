@@ -19,7 +19,7 @@ import heapq
         H    = [(0, S)]
 
         for n in range(1, N + 1):
-            D[n] = float('inf')
+            D[n] = 999999
 
         D[S] = 0
 
@@ -66,7 +66,7 @@ def prim(S, N, G):
     H    = [(0, S)]
 
     for n in range(1, N + 1):
-        D[n] = float('inf')
+        D[n] = 999999
 
     D[S] = 0
 

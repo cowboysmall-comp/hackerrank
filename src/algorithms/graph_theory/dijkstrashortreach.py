@@ -17,7 +17,7 @@ import heapq
         H    = [(0, S)]
 
         for n in range(1, N + 1):
-            D[n] = float('inf')
+            D[n] = 999999
 
         D[S] = 0
 
@@ -50,7 +50,7 @@ import heapq
             S    = int(input())
 
             D    = dijkstra(S, N, G)
-            print(' '.join(str(D[n]) if D[n] != float('inf') else '-1' for n in range(1, N + 1) if n != S))
+            print(' '.join(str(D[n]) if D[n] != 999999 else '-1' for n in range(1, N + 1) if n != S))
 
 
     if __name__ == "__main__":
@@ -64,7 +64,7 @@ def dijkstra(S, N, G):
     H    = [(0, S)]
 
     for n in range(1, N + 1):
-        D[n] = float('inf')
+        D[n] = 99999
 
     D[S] = 0
 
@@ -102,7 +102,7 @@ def main(argv):
         S    = lines[C][0]
 
         D    = dijkstra(S, N, G)
-        print(' '.join(str(D[n]) if D[n] != float('inf') else '-1' for n in range(1, N + 1) if n != S))
+        print(' '.join(str(D[n]) if D[n] != 99999 else '-1' for n in range(1, N + 1) if n != S))
 
 
 if __name__ == "__main__":

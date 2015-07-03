@@ -55,19 +55,19 @@ from collections import defaultdict, deque
 
 
 def breadth_first_search(S, N, G, L = 1):
-    C = {}
+    C    = {}
 
     for n in range(1, N + 1):
         C[n] = -1
 
-    C[S]  = 0
-    Q     = deque([S])
+    C[S] = 0
+    Q    = deque([S])
 
     while Q:
         n = Q.popleft()
         for h in G[n]:
             if C[h] == -1:
-                C[h]  = C[n] + L
+                C[h] = C[n] + L
                 Q.append(h)
 
     return C

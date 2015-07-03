@@ -4,6 +4,8 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '../../tools'))
 
 import files
 
+from collections import defaultdict
+
 
 '''
     submitted code:
@@ -14,17 +16,16 @@ import files
 
         for k in range(1, N + 1):
             for i in range(1, N + 1):
-                if E[i][k] != float('inf'):
-                    for j in range(1, N + 1):
-                        if E[k][j] != float('inf'):
-                            if E[i][j] > E[i][k] + E[k][j]:
-                                E[i][j] = E[i][k] + E[k][j]
+                if E[i][k] == 99999: continue
+                for j in range(1, N + 1):
+                    if E[i][j] > E[i][k] + E[k][j]:
+                        E[i][j] = E[i][k] + E[k][j]
 
 
     def main():
         N, M = [int(i) for i in input().split()]
 
-        E    = [[float('inf') for _ in range(N + 1)] for _ in range(N + 1)]
+        E    = [[99999 for _ in range(N + 1)] for _ in range(N + 1)]
 
         for _ in range(M):
             x, y, r = [int(i) for i in input().split()]
@@ -36,7 +37,7 @@ import files
 
         for _ in range(Q):
             a, b = [int(i) for i in input().split()]
-            print(str(E[a][b]) if E[a][b] != float('inf') else '-1')
+            print(str(E[a][b]) if E[a][b] != 99999 else '-1')
 
 
     if __name__ == "__main__":
@@ -51,18 +52,17 @@ def floyd(N, E):
 
     for k in range(1, N + 1):
         for i in range(1, N + 1):
-            if E[i][k] < float('inf'):
-                for j in range(1, N + 1):
-                    if E[k][j] < float('inf'):
-                        if E[i][j] > E[i][k] + E[k][j]:
-                            E[i][j] = E[i][k] + E[k][j]
+            if E[i][k] == 99999: continue
+            for j in range(1, N + 1):
+                if E[i][j] > E[i][k] + E[k][j]:
+                    E[i][j] = E[i][k] + E[k][j]
 
 
 def main(argv):
     lines = files.read_lines_of_ints(argv[0])
     N, M  = lines[0]
 
-    E     = [[float('inf') for _ in range(N + 1)] for _ in range(N + 1)]
+    E     = [[99999 for _ in range(N + 1)] for _ in range(N + 1)]
 
     for x, y, r in lines[1:M + 1]:
         E[x][y] = r
@@ -71,8 +71,8 @@ def main(argv):
 
     Q     = lines[M + 1][0]
 
-    for a, b in lines[M + 2:M + 2 + Q]:
-        print(str(E[a][b]) if E[a][b] != float('inf') else '-1')
+    for a, b in lines[M + 2:]:
+        print(str(E[a][b]) if E[a][b] != 99999 else '-1')
 
 
 if __name__ == "__main__":

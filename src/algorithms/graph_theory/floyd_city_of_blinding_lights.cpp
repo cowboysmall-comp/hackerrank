@@ -35,17 +35,13 @@ void floyd(int N, vector< vector<int> > &E) {
 
         for (int i = 1; i <= N; i++) {
 
-            if (E[i][k] != MAX) {
+            if (E[i][k] == MAX) continue;
 
-                for (int j = 1; j <= N; j++) {
+            for (int j = 1; j <= N; j++) {
 
-                    if (E[k][j] != MAX) {
+                if (E[i][j] > E[i][k] + E[k][j]) { 
 
-                        if (E[i][j] > E[i][k] + E[k][j]) { 
-
-                            E[i][j] = E[i][k] + E[k][j];
-                        }
-                    }
+                    E[i][j] = E[i][k] + E[k][j];
                 }
             }
         }
@@ -64,7 +60,7 @@ int main() {
     int x;
     int y;
     int r;
-    for(int i = 0; i < M; i++) {
+    for (int i = 0; i < M; i++) {
 
         cin >> x >> y >> r;
         E[x][y] = r;
@@ -77,7 +73,7 @@ int main() {
 
     int a;
     int b;
-    for(int i = 0; i < Q; i++) {
+    for (int i = 0; i < Q; i++) {
 
         cin >> a >> b;
         cout << (E[a][b] == MAX ? -1 : E[a][b]) << endl;
