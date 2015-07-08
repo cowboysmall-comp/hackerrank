@@ -55,7 +55,7 @@ import files
     def main():
         N, I = [int(i) for i in input().split()]
 
-        P = []
+        P    = []
         for _ in range(I):
             P.append([int(i) for i in input().split()])
 
