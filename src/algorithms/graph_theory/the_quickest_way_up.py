@@ -31,26 +31,40 @@ import heapq
                         heapq.heapify(H)
                     heapq.heappush(H, (D[h[1]], h[1]))
 
-        return D
+        return D[100]
 
 
     def main():
         T = int(input())
 
         for _ in range(T):
-            N, M = [int(i) for i in input().split()]
+            N  = int(input())
 
-            G    = defaultdict(set)
+            S  = {}
+            for _ in range(N):
+                e = [int(i) for i in input().split()]
+                S[e[0]] = e[1]
 
+            M  = int(input())
+
+            L  = {}
             for _ in range(M):
                 e = [int(i) for i in input().split()]
-                G[e[0]].add((e[2], e[1]))
-                G[e[1]].add((e[2], e[0]))
+                L[e[0]] = e[1]
 
-            S    = int(input())
+            G  = defaultdict(set)
+            for i in range(1, 101):
+                for j in range(i + 1, i + 7):
+                    if j <= 100:
+                        if j in S:
+                            G[i].add((1, S[j]))
+                        elif j in L:
+                            G[i].add((1, L[j]))
+                        else:
+                            G[i].add((1, j))
 
-            D    = dijkstra(S, N, G)
-            print(' '.join(str(D[n]) if D[n] != 999999 else '-1' for n in range(1, N + 1) if n != S))
+            D  = dijkstra(1, 100, G)
+            print(D if D != 999999 else '-1')
 
 
     if __name__ == "__main__":
@@ -78,7 +92,7 @@ def dijkstra(S, N, G):
                     heapq.heapify(H)
                 heapq.heappush(H, (D[h[1]], h[1]))
 
-    return D
+    return D[100]
 
 
 def main(argv):
@@ -88,20 +102,35 @@ def main(argv):
     C     = 1
 
     for _ in range(T):
-        N, M = lines[C]
-        C   += 1
+        N  = lines[C][0]
+        C += 1
 
-        G    = defaultdict(set)
+        S  = {}
+        for line in lines[C:C + N]:
+            S[line[0]] = line[1]
+        C += N
+
+        M  = lines[C][0]
+        C += 1
+
+        L  = {}
         for line in lines[C:C + M]:
-            G[line[0]].add((line[2], line[1]))
-            G[line[1]].add((line[2], line[0]))
-        C   += M
+            L[line[0]] = line[1]
+        C += M
 
-        S    = lines[C][0]
-        C   += 1
+        G  = defaultdict(set)
+        for i in range(1, 101):
+            for j in range(i + 1, i + 7):
+                if j <= 100:
+                    if j in S:
+                        G[i].add((1, S[j]))
+                    elif j in L:
+                        G[i].add((1, L[j]))
+                    else:
+                        G[i].add((1, j))
 
-        D    = dijkstra(S, N, G)
-        print(' '.join(str(D[n]) if D[n] != 999999 else '-1' for n in range(1, N + 1) if n != S))
+        D  = dijkstra(1, 100, G)
+        print(D if D != 999999 else '-1')
 
 
 if __name__ == "__main__":
