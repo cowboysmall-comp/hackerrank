@@ -31,7 +31,7 @@ import heapq
                         heapq.heapify(H)
                     heapq.heappush(H, (D[h[1]], h[1]))
 
-        return D[100]
+        return D
 
 
     def main():
@@ -63,7 +63,7 @@ import heapq
                         else:
                             G[i].add((1, j))
 
-            D  = dijkstra(1, 100, G)
+            D  = dijkstra(1, 100, G)[100]
             print(D if D != 999999 else '-1')
 
 
@@ -92,7 +92,7 @@ def dijkstra(S, N, G):
                     heapq.heapify(H)
                 heapq.heappush(H, (D[h[1]], h[1]))
 
-    return D[100]
+    return D
 
 
 def main(argv):
@@ -129,7 +129,7 @@ def main(argv):
                     else:
                         G[i].add((1, j))
 
-        D  = dijkstra(1, 100, G)
+        D  = dijkstra(1, 100, G)[100]
         print(D if D != 999999 else '-1')
 
 
