@@ -88,7 +88,7 @@ def maximum_length(P, Q, S):
     M = 0
 
     L = calculate_length(P, Q, S)
-    if L > M:
+    if M < L:
         M = L
 
     for i in range(1, m):
@@ -96,11 +96,11 @@ def maximum_length(P, Q, S):
             break
 
         L = calculate_length(P[i:], Q, S)
-        if L > M:
+        if M < L:
             M = L
 
         L = calculate_length(P, Q[i:], S)
-        if L > M:
+        if M < L:
             M = L
 
     return M
