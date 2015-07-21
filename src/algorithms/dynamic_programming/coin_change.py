@@ -24,6 +24,7 @@ from collections import defaultdict
     def main():
         N, M = [int(i) for i in input().split()]
         C    = [int(i) for i in input().split()]
+
         print(coin_change(C, N, M))
 
 
