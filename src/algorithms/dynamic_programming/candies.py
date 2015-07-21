@@ -12,7 +12,7 @@ import files
         C = [1 for _ in range(N)]
 
         for i in range(1, N):
-            if R[i] > R[i - 1] and C[i] <= C[i - 1]:
+            if R[i] > R[i - 1]:
                 C[i] = C[i - 1] + 1
 
         for i in range(N - 2, -1, -1):
@@ -38,7 +38,7 @@ def candies(N, R):
     C = [1 for _ in range(N)]
 
     for i in range(1, N):
-        if R[i] > R[i - 1] and C[i] <= C[i - 1]:
+        if R[i] > R[i - 1]:
             C[i] = C[i - 1] + 1
 
     for i in range(N - 2, -1, -1):
