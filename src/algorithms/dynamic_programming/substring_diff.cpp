@@ -5,9 +5,9 @@ using namespace std;
 
 
 /*
-    [ jerry@pantagruel hackerrank ] $ clang++ -O3 -msse2 -o substring_diff src/strings/substring_diff.cpp
+    [ jerry@pantagruel hackerrank ] $ clang++ -O3 -msse2 -o substring_diff src/algorithms/dynamic_programming/substring_diff.cpp
 
-    [ jerry@pantagruel hackerrank ] $ time ./substring_diff < data/strings/substring_diff_02.txt
+    [ jerry@pantagruel hackerrank ] $ time ./substring_diff < data/algorithms/dynamic_programming/input/substring_diff_02.txt
 
     256
     13
