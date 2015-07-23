@@ -118,6 +118,7 @@ def combs(M):
     for i in range(1, M + 1):
         for j in range(1, i):
             C[i][j]  = C[i - 1][j - 1] + C[i - 1][j]
+            C[i][j] %= 1000000007
 
     return C
 
