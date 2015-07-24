@@ -4,17 +4,16 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '../../tools'))
 
 import files
 
-import math
-
 
 '''
     submitted code:
 
     def operations(N, A):
         M = min(A)
+        S = max(0, M - 4)
         O = []
 
-        for m in range(M - 4, M + 1):
+        for m in range(S, M + 1):
             C = 0
             for i in range(N):
                 T  = A[i] - m
@@ -40,9 +39,10 @@ import math
 
 def operations(N, A):
     M = min(A)
+    S = max(0, M - 4)
     O = []
 
-    for m in range(M - 4, M + 1):
+    for m in range(S, M + 1):
         C = 0
         for i in range(N):
             T  = A[i] - m
