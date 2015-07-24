@@ -9,31 +9,35 @@ import files
     submitted code:
 
     def perimeter(M, N, A):
-        R = [0]
         B = [[0 for _ in range(N + 1)] for _ in range(M + 1)]
+        C = [[0 for _ in range(N + 1)] for _ in range(M + 1)]
 
-        for i in range(1, M + 1):
-            for j in range(1, N + 1):
-                B[i][j] += B[i][j - 1] + (A[i - 1][j - 1] == 'x')
+        for i in range(M):
+            B[i][N] = N
 
-        for i in range(1, N + 1):
-            for j in range(i + 1, N + 1):
-                c = -1
-                for k in range(1, M + 1):
-                    if B[k][j] - B[k][i - 1] == 0:
-                        if c == -1:
-                            c = k
-                        else:
-                            R.append(2 * (j - i) + 2 * (k - c))
-                    elif A[k - 1][i - 1] == 'x' or A[k - 1][j - 1] == 'x':
-                        c = -1
+        for i in range(N):
+            C[M][i] = M
 
-        return max(R)
+        for i in range(M - 1, -1, -1):
+            for j in range(N - 1, -1, -1):
+                B[i][j] = j if A[i][j] == 'x' else B[i][j + 1]
+                C[i][j] = i if A[i][j] == 'x' else C[i + 1][j]
+
+        R = 0
+        for i in range(M):
+            for j in range(N):
+                if A[i][j] == '.':
+                    for k in range(j + 1, B[i][j]):
+                        for l in range(i + 1, min(C[i][j], C[i][k])):
+                            if B[l][j] > k:
+                                R = max(R, 2 * (l - i) + 2 * (k - j))
+
+        return R
 
 
     def main():
         M, N = [int(i) for i in input().split()]
-        A    = [[c for c in input()] for _ in range(M)]
+        A    = [input() for _ in range(M)]
         R    = perimeter(M, N, A)
         print(R if R > 0 else 'impossible')
 
@@ -44,36 +48,36 @@ import files
 '''
 
 def perimeter(M, N, A):
-    R = [0]
     B = [[0 for _ in range(N + 1)] for _ in range(M + 1)]
+    C = [[0 for _ in range(N + 1)] for _ in range(M + 1)]
 
-    V = False
-    for i in range(1, M + 1):
-        for j in range(1, N + 1):
-            if not V and A[i - 1][j - 1] == 'x':
-                V = True
-            B[i][j] += B[i][j - 1] + (A[i - 1][j - 1] == 'x')
+    for i in range(M):
+        B[i][N] = N
 
-    if V:
-        for i in range(1, N):
-            for j in range(i + 1, N + 1):
-                c = -1
-                for k in range(1, M + 1):
-                    if B[k][j] - B[k][i - 1] == 0:
-                        if c == -1:
-                            c = k
-                        else:
-                            R.append(2 * (j - i) + 2 * (k - c))
-                    elif A[k - 1][i - 1] == 'x' or A[k - 1][j - 1] == 'x':
-                        c = -1
+    for i in range(N):
+        C[M][i] = M
 
-    return max(R)
+    for i in range(M - 1, -1, -1):
+        for j in range(N - 1, -1, -1):
+            B[i][j] = j if A[i][j] == 'x' else B[i][j + 1]
+            C[i][j] = i if A[i][j] == 'x' else C[i + 1][j]
+
+    R = 0
+    for i in range(M):
+        for j in range(N):
+            if A[i][j] == '.':
+                for k in range(j + 1, B[i][j]):
+                    for l in range(i + 1, min(C[i][j], C[i][k])):
+                        if B[l][j] > k:
+                            R = max(R, 2 * (l - i) + 2 * (k - j))
+
+    return R
 
 
 def main(argv):
     lines = files.read_lines(argv[0])
     M, N  = [int(i) for i in lines[0].split()]
-    A     = [[c for c in line] for line in lines[1:]]
+    A     = lines[1:]
     R     = perimeter(M, N, A)
     print(R if R > 0 else 'impossible')
 
