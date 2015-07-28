@@ -4,40 +4,47 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '../../tools'))
 
 import files
 
-from collections import defaultdict
-
 
 '''
     submitted code:
 
-    def floyd(N, E):
-        for n in range(1, N + 1):
-            E[n][n] = 0
+    def floyd(N, G):
+        for k in range(N):
+            for i in range(N):
 
-        for k in range(1, N + 1):
-            for i in range(1, N + 1):
-                if E[i][k] == 99999: continue
-                for j in range(1, N + 1):
-                    if E[i][j] > E[i][k] + E[k][j]:
-                        E[i][j] = E[i][k] + E[k][j]
+                if G[i][k] == 999999: 
+                    continue
+
+                V = G[i][k]
+
+                for j in range(N):
+
+                    W = G[k][j]
+
+                    if G[i][j] > V + W:
+                        G[i][j] = V + W
+
+        return G
 
 
     def main():
-        N, M = [int(i) for i in input().split()]
+        N, M = [int(i) for i in raw_input().split()]
 
-        E    = [[99999 for _ in range(N + 1)] for _ in range(N + 1)]
+        G    = [[999999 for _ in range(N)] for _ in range(N)]
+
+        for n in range(N):
+            G[n][n] = 0
 
         for _ in range(M):
-            x, y, r = [int(i) for i in input().split()]
-            E[x][y] = r
+            x, y, r = [int(i) for i in raw_input().split()]
+            G[x - 1][y - 1] = r
 
-        floyd(N, E)
+        D    = floyd(N, G)
 
-        Q    = int(input())
-
-        for _ in range(Q):
-            a, b = [int(i) for i in input().split()]
-            print(str(E[a][b]) if E[a][b] != 99999 else '-1')
+        for _ in range(int(raw_input())):
+            a, b = [int(i) for i in raw_input().split()]
+            d    = D[a - 1][b - 1]
+            print('-1' if d == 999999 else d)
 
 
     if __name__ == "__main__":
@@ -45,34 +52,44 @@ from collections import defaultdict
 
 '''
 
+def floyd(N, G):
+    for k in range(N):
+        for i in range(N):
 
-def floyd(N, E):
-    for n in range(1, N + 1):
-        E[n][n] = 0
+            if G[i][k] == 999999: 
+                continue
 
-    for k in range(1, N + 1):
-        for i in range(1, N + 1):
-            if E[i][k] == 99999: continue
-            for j in range(1, N + 1):
-                if E[i][j] > E[i][k] + E[k][j]:
-                    E[i][j] = E[i][k] + E[k][j]
+            V = G[i][k]
+
+            for j in range(N):
+
+                W = G[k][j]
+
+                if G[i][j] > V + W:
+                    G[i][j] = V + W
+
+    return G
 
 
 def main(argv):
     lines = files.read_lines_of_ints(argv[0])
     N, M  = lines[0]
 
-    E     = [[99999 for _ in range(N + 1)] for _ in range(N + 1)]
+
+    G     = [[999999 for _ in range(N)] for _ in range(N)]
+
+    for n in range(N):
+        G[n][n] = 0
 
     for x, y, r in lines[1:M + 1]:
-        E[x][y] = r
+        G[x - 1][y - 1] = r
 
-    floyd(N, E)
+    D     = floyd(N, G)
 
     Q     = lines[M + 1][0]
-
     for a, b in lines[M + 2:]:
-        print(str(E[a][b]) if E[a][b] != 99999 else '-1')
+        d = D[a - 1][b - 1]
+        print('-1' if d == 999999 else d)
 
 
 if __name__ == "__main__":

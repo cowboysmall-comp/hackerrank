@@ -14,35 +14,33 @@ using namespace std;
     0
     106
 
-    real    0m0.588s
-    user    0m0.289s
-    sys     0m0.276s
+    real    0m0.005s
+    user    0m0.000s
+    sys     0m0.000s
 
 */
 
 
-#define MAX 99999
+#define MAX 999999
 
 
-void floyd(int N, vector< vector<int> > &E) {
+void floyd(int N, vector< vector<int> > &G) {
 
-    for (int n = 1; n <= N; n++) {
+    for (int k = 0; k < N; k++) {
 
-        E[n][n] = 0;
-    }
+        for (int i = 0; i < N; i++) {
 
-    for (int k = 1; k <= N; k++) {
+            if (G[i][k] == MAX) 
+                continue;
 
-        for (int i = 1; i <= N; i++) {
+            int V = G[i][k];
 
-            if (E[i][k] == MAX) continue;
+            for (int j = 0; j < N; j++) {
 
-            for (int j = 1; j <= N; j++) {
+                int W = G[k][j];
 
-                if (E[i][j] > E[i][k] + E[k][j]) { 
-
-                    E[i][j] = E[i][k] + E[k][j];
-                }
+                if (G[i][j] > V + W)
+                    G[i][j] = V + W;
             }
         }
     }
@@ -55,18 +53,22 @@ int main() {
     int M;
     cin >> N >> M;
 
-    vector< vector<int> > E(N + 1, vector<int>(N + 1, MAX));
+    vector< vector<int> > G(N, vector<int>(N, MAX));
+
+    for (int n = 0; n < N; n++)
+        G[n][n] = 0;
 
     int x;
     int y;
     int r;
+
     for (int i = 0; i < M; i++) {
 
         cin >> x >> y >> r;
-        E[x][y] = r;
+        G[x - 1][y - 1] = r;
     }
 
-    floyd(N, E);
+    floyd(N, G);
 
     int Q;
     cin >> Q;
@@ -76,6 +78,7 @@ int main() {
     for (int i = 0; i < Q; i++) {
 
         cin >> a >> b;
-        cout << (E[a][b] == MAX ? -1 : E[a][b]) << endl;
+        int d = G[a - 1][b - 1];
+        cout << (d == MAX ? -1 : d) << endl;
     }
 }
