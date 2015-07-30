@@ -52,10 +52,10 @@ import files
         def search(i, j, S, T):
             if 0 <= i < N and 0 <= j < M and S <= K and T < C[i][j]:
                 C[i][j] = T
-                search(i - 1, j, S + 1, T + (B[i][j] != 'U'))
                 search(i + 1, j, S + 1, T + (B[i][j] != 'D'))
-                search(i, j - 1, S + 1, T + (B[i][j] != 'L'))
+                search(i - 1, j, S + 1, T + (B[i][j] != 'U'))
                 search(i, j + 1, S + 1, T + (B[i][j] != 'R'))
+                search(i, j - 1, S + 1, T + (B[i][j] != 'L'))
 
         search(0, 0, 0, 0)
 
