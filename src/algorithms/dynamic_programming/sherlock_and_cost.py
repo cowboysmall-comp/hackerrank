@@ -9,13 +9,16 @@ import files
     submitted code:
 
     def cost(N, B):
-        C = [[0 for _ in range(2)] for _ in range(N)]
-
+        L = 0
+        H = 0
+        
         for i in range(1, N):
-            C[i][0] = max(C[i - 1][1] + abs(B[i - 1] - 1),    C[i - 1][0])
-            C[i][1] = max(C[i - 1][1] + abs(B[i] - B[i - 1]), C[i - 1][0] + abs(B[i] - 1))
+            l = max(H + abs(B[i - 1] - 1),    L)
+            h = max(H + abs(B[i] - B[i - 1]), L + abs(B[i] - 1))
+            L = l
+            H = h
 
-        return max(C[N - 1])
+        return max(L, H)
 
 
     def main():
@@ -30,17 +33,31 @@ import files
     if __name__ == "__main__":
         main()
 
+
+    alternative implementation:
+
+    def cost(N, B):
+        C = [[0 for _ in range(2)] for _ in range(N)]
+
+        for i in range(1, N):
+            C[i][0] = max(C[i - 1][1] + abs(B[i - 1] - 1),    C[i - 1][0])
+            C[i][1] = max(C[i - 1][1] + abs(B[i] - B[i - 1]), C[i - 1][0] + abs(B[i] - 1))
+
+        return max(C[N - 1])
+
 '''
 
 def cost(N, B):
-    C = [[0 for _ in range(2)] for _ in range(N)]
-
+    L = 0
+    H = 0
+    
     for i in range(1, N):
-        C[i][0] = max(C[i - 1][1] + abs(B[i - 1] - 1),    C[i - 1][0])
-        C[i][1] = max(C[i - 1][1] + abs(B[i] - B[i - 1]), C[i - 1][0] + abs(B[i] - 1))
+        l = max(H + abs(B[i - 1] - 1),    L)
+        h = max(H + abs(B[i] - B[i - 1]), L + abs(B[i] - 1))
+        L = l
+        H = h
 
-    return max(C[N - 1])
-
+    return max(L, H)
 
 
 def main(argv):
