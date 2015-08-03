@@ -70,7 +70,6 @@ import files
 
 '''
 
-
 def partition(array, lower, upper):
     index = lower
     value = array[upper]

@@ -37,7 +37,6 @@ import files
 
 '''
 
-
 def common_child(s, t):
     m = len(s)
     n = len(t)

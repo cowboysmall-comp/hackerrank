@@ -44,7 +44,6 @@ from collections import defaultdict
 
 '''
 
-
 def changes(string):
     length = len(string)
 

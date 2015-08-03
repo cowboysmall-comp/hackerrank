@@ -31,7 +31,6 @@ import files
 
 '''
 
-
 def cavity_map(n, M):
     cmap = [[c for c in row] for row in M]
 

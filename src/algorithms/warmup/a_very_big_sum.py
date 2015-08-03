@@ -20,7 +20,6 @@ import files
 
 '''
 
-
 def main(argv):
     lines = files.read_lines_of_ints(argv[0])
     N     = lines[0][0]

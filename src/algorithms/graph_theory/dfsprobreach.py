@@ -56,7 +56,6 @@ from collections import defaultdict
 
 '''
 
-
 def depth_first_search(S, G):
     E = defaultdict(int)
     T = []

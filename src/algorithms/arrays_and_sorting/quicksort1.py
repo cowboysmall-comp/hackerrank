@@ -40,7 +40,6 @@ import files
 
 '''
 
-
 def partition(array):
     return [val for val in array if val <= array[0]] + [val for val in array if val > array[0]]
 

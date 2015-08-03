@@ -29,7 +29,6 @@ import math
 
 '''
 
-
 def count_squares(A, B):
     A2 = math.sqrt(A)
     A3 = int(A2)

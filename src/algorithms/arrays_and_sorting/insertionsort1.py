@@ -36,7 +36,6 @@ import files
 
 '''
 
-
 def insertion_sort(array):
     moves = []
     value = array[-1]

@@ -29,7 +29,6 @@ import files
 
 '''
 
-
 def substring(A, B):
     return len(set([a for a in A]) & set([b for b in B])) > 0
 

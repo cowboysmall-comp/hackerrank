@@ -33,7 +33,6 @@ import files
 
 '''
 
-
 def is_funny_string(string):
     length = len(string)
 

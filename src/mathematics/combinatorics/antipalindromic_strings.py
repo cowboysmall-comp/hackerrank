@@ -32,7 +32,6 @@ import files
 
 '''
 
-
 def antipalindromic(slength, alength):
     mod    = 1000000007
     value  = alength
@@ -43,6 +42,7 @@ def antipalindromic(slength, alength):
         value *= pow(alength - 2, slength - 2, mod)
         value %= mod
     return value
+
 
 def main(argv):
     lines = files.read_lines_of_ints(argv[0])

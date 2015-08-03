@@ -78,7 +78,6 @@ from collections import defaultdict, deque
 
 '''
 
-
 def breadth_first_search(G, P, S, T, N):
     V     = defaultdict(int)
     Q     = deque([S])

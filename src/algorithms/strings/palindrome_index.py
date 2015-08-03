@@ -35,7 +35,6 @@ import files
 
 '''
 
-
 def deletion_index(string):
     length = len(string)
 

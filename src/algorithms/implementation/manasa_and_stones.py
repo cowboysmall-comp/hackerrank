@@ -32,7 +32,6 @@ import files
 
 '''
 
-
 def last_stones(n, a, b):
     totals = set()
 

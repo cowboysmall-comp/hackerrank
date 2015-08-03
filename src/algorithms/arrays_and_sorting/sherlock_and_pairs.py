@@ -42,7 +42,6 @@ import files
 
 '''
 
-
 def count_elements(A):
     counter = [0 for _ in range(1000001)]
 

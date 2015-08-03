@@ -33,7 +33,6 @@ import files
 
 '''
 
-
 def palindrome(alpha, string):
     length = len(string)
     count  = 0

@@ -25,7 +25,6 @@ import files
 
 '''
 
-
 def solve_me_second(a, b):
     return a + b
     

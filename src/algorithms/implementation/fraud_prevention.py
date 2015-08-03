@@ -77,7 +77,6 @@ from collections import defaultdict
 
 '''
 
-
 def parse_email(E):
     E    = E.lower()
     B, A = E.split('@')

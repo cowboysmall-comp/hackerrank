@@ -32,7 +32,6 @@ import files
 
 '''
 
-
 def filling_jars(operations, count):
     total = 0
 

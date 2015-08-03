@@ -34,7 +34,6 @@ import files
 
 '''
 
-
 def staircase(N):
     S = []
 

@@ -45,7 +45,6 @@ import files
 
 '''
 
-
 def prime_factors(M):
     factors = []
     factor  = 2

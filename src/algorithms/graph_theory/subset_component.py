@@ -60,7 +60,6 @@ from itertools import combinations
 
 '''
 
-
 def set_positions(V):
     C = [i for i in range(64)]
     P = []

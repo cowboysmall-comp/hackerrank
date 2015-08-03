@@ -61,7 +61,6 @@ from collections import defaultdict
 
 '''
 
-
 def find(S):
     length = len(S)
 

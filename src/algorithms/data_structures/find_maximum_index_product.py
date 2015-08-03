@@ -46,7 +46,6 @@ import files
 
 '''
 
-
 def max_index_product(N, A):
     L     = [0 for _ in range(N)]
     R     = [0 for _ in range(N)]

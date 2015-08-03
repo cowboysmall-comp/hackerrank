@@ -22,7 +22,6 @@ import files
 
 '''
 
-
 def main(argv):
     lines   = files.read_lines_of_ints(argv[0])
     N, K, Q = lines[0]

@@ -26,7 +26,6 @@ import files
 
 '''
 
-
 def minimum_spend(B, W, X, Y, Z):
     return min((B * X) + (W * Y), (B * X) + (W * (X + Z)), (B * (Y + Z)) + (W * Y))
 

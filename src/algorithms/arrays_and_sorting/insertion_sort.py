@@ -82,7 +82,6 @@ import files
 
 '''
 
-
 def merge(A, B):
     lengthA    = len(A)
     lengthB    = len(B)

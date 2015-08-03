@@ -26,7 +26,6 @@ import files
 
 '''
 
-
 def angry_professor(K, C):
     return 'NO' if len([c for c in C if c <= 0]) >= K else 'YES'
 

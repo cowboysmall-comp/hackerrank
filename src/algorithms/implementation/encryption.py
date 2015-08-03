@@ -42,7 +42,6 @@ import math
 
 '''
 
-
 def encrypt(text):
     L    = len(text)
 

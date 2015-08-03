@@ -62,7 +62,6 @@ import files
 
 '''
 
-
 def split_digits(N, t = 10):
     digits = []
     value  = N

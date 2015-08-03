@@ -35,7 +35,6 @@ import files
 
 '''
 
-
 def chocolate_feast(N, C, M):
     wrappers = N // C
     count    = wrappers

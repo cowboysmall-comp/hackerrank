@@ -51,7 +51,6 @@ import files
 
 '''
 
-
 def main(argv):
     lines      = files.read_lines_of_ints(argv[0])
     n          = lines[0][0]

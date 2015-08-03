@@ -38,7 +38,6 @@ import files
 
 '''
 
-
 def library_fine(A, E):
     d = A[0] - E[0]
     m = A[1] - E[1]
@@ -55,7 +54,6 @@ def library_fine(A, E):
         return 15 * d
 
     return 0
-
 
 
 def main(argv):

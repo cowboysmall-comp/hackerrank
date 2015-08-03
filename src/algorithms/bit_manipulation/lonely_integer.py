@@ -29,7 +29,6 @@ from collections import defaultdict
 
 '''
 
-
 def lonely_integer(array):
     counter = defaultdict(int)
     

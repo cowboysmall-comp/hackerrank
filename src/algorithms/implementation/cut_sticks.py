@@ -40,7 +40,6 @@ from collections import defaultdict
 
 '''
 
-
 def cut_sticks(sticks):
     cuts = []
 

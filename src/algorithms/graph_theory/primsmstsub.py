@@ -58,7 +58,6 @@ import heapq
 
 '''
 
-
 def prim(S, N, G):
     E    = defaultdict(int)
     D    = {}

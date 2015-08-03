@@ -72,7 +72,6 @@ import heapq
 
 '''
 
-
 def dijkstra(S, N, G):
     D    = {}
     H    = [(0, S)]

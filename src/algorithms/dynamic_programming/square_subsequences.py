@@ -54,7 +54,6 @@ import files
 
 '''
 
-
 def count_square_subsequences(s, t):
     m       = len(s)
     n       = len(t)

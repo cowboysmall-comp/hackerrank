@@ -28,7 +28,6 @@ import files
 
 '''
 
-
 def plus_minus(A):
     length   = len(A)
     positive = len([a for a in A if a > 0]) / length

@@ -53,23 +53,8 @@ from collections import defaultdict, deque
 
 '''
 
-def breadth_first_search(S, N, G, L = 1):
-    C    = {}
-
-    for n in range(1, N + 1):
-        C[n] = -1
-
-    C[S] = 0
-    Q    = deque([S])
-
-    while Q:
-        n = Q.popleft()
-        for h in G[n]:
-            if C[h] == -1:
-                C[h] = C[n] + L
-                Q.append(h)
-
-    return C
+def grid_challenge():
+    return -1
 
 
 def main(argv):

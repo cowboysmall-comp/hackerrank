@@ -25,7 +25,6 @@ import files
 
 '''
 
-
 def symmetric_point(P, Q):
     return ((2 * Q[0]) - P[0], (2 * Q[1]) - P[1])
 

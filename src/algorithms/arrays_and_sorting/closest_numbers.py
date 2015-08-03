@@ -31,7 +31,6 @@ from collections import defaultdict
 
 '''
 
-
 def closest_numbers(A):
     pairs = defaultdict(list)
 

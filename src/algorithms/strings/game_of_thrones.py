@@ -32,7 +32,6 @@ from collections import defaultdict
 
 '''
 
-
 def palindrome_anagram(string):
     counter = defaultdict(int)
 

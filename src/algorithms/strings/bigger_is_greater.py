@@ -68,7 +68,6 @@ import files
 
 '''
 
-
 def greater_than(chars):
     chars  = [c for c in chars]
     length = len(chars)

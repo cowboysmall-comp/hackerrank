@@ -4,8 +4,6 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '../../tools'))
 
 import files
 
-from collections import defaultdict
-
 
 '''
     submitted code:
@@ -127,7 +125,6 @@ from collections import defaultdict
 
 
 '''
-
 
 def merge(A, B):
     m = len(A)

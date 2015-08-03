@@ -39,7 +39,6 @@ import files
 
 '''
 
-
 def count_elements(array):
     counter = [0 for _ in range(100)]
 

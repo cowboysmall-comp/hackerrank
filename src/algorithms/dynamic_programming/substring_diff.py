@@ -59,7 +59,6 @@ import files
 
 '''
 
-
 def calculate_length(P, Q, S):
     m = min(len(P), len(Q))
 

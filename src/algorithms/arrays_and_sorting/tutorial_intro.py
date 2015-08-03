@@ -67,7 +67,6 @@ import files
 
 '''
 
-
 def binary_search(array, key, start, end):
     while start < end:
         midpoint = start + (end - start) // 2

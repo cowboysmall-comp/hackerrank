@@ -24,7 +24,6 @@ import files
 
 '''
 
-
 def minimum_draws(P):
     return P + 1
 

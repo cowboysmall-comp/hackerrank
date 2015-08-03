@@ -34,7 +34,6 @@ import files
 
 '''
 
-
 def service_lane(W, P):
     widths = []
 

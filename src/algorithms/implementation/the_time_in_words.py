@@ -50,7 +50,6 @@ import files
 
 '''
 
-
 def time_in_words(H, M):
     words = [
         'one', 'two', 'three', 'four', 'five', 

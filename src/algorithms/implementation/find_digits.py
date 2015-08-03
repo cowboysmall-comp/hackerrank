@@ -35,7 +35,6 @@ import files
 
 '''
 
-
 def count_digit_dividers(N):
     count = 0
     value = N

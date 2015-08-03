@@ -32,7 +32,6 @@ from collections import defaultdict
 
 '''
 
-
 def gem_stones(strings):
     length   = len(strings)
     elements = defaultdict(set)

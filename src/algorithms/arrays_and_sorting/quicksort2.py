@@ -58,7 +58,6 @@ import files
 
 '''
 
-
 def partition(array, collector):
     if len(array) <= 1:
         return array

@@ -24,7 +24,6 @@ import files
 
 '''
 
-
 def diagonal_difference(A, N):
     return abs(sum(A[i][i] for i in range(N)) - sum(A[i][N - i - 1] for i in range(N)))
 

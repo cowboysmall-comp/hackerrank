@@ -36,7 +36,6 @@ from collections import defaultdict
 
 '''
 
-
 def anagramic_pairs(string):
     length = len(string)
     count  = defaultdict(int)

@@ -51,7 +51,6 @@ import files
 
 '''
 
-
 def decent_number(N):
     i = 0
 

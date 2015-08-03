@@ -33,7 +33,6 @@ import files
 
 '''
 
-
 def deletions(string):
     current   = string[0]
     deletions = 0

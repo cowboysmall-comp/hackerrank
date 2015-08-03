@@ -32,7 +32,6 @@ from collections import defaultdict
 
 '''
 
-
 def deletions(string1, string2):
     counter1  = defaultdict(int)
     counter2  = defaultdict(int)

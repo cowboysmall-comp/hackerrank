@@ -25,7 +25,6 @@ import files
 
 '''
 
-
 def optimal_slices(K):
     half = K // 2
     return half * (K - half)

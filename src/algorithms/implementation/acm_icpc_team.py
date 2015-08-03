@@ -33,7 +33,6 @@ from collections import defaultdict
 
 '''
 
-
 def max_topics(array):
     counter = defaultdict(int)
 

@@ -30,7 +30,6 @@ import files
 
 '''
 
-
 def time_conversion(T):
     h  = int(T[:2])
     m  = int(T[3:5])

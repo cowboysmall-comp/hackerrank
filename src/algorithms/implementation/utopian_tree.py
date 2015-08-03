@@ -32,7 +32,6 @@ import files
 
 '''
 
-
 def grow(cycles):
     height = 1
 

@@ -32,7 +32,6 @@ import files
 
 '''
 
-
 def max_xor(L, R):
     maximum = 0
 

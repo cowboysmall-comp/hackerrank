@@ -21,7 +21,6 @@ import math
 
 '''
 
-
 def main(argv):
     N = files.read_int(argv[0])
 
