@@ -34,7 +34,6 @@ import files
 
 '''
 
-
 def minimum_unfairness(array, K):
     array      = sorted(array)
     unfairness = []
