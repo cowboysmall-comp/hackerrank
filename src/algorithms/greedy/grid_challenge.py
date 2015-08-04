@@ -10,42 +10,29 @@ from collections import defaultdict, deque
 '''
     submitted code:
 
-    def breadth_first_search(S, N, G, L = 1):
-        C = {}
+    def grid_challenge(N, G):
+        G[0].sort()
 
-        for n in range(1, N + 1):
-            C[n] = -1
+        for i in range(1, N):
+            G[i].sort()
+            for j in range(N):
+                if G[i - 1][j] > G[i][j]:
+                    return 'NO'
 
-        C[S]  = 0
-        Q     = deque([S])
-
-        while Q:
-            n = Q.popleft()
-            for h in G[n]:
-                if C[h] == -1:
-                    C[h]  = C[n] + L
-                    Q.append(h)
-
-        return C
+        return 'YES'
 
 
     def main():
         T = int(input())
 
         for _ in range(T):
-            N, M = [int(i) for i in input().split()]
+            N = int(input())
 
-            G    = defaultdict(set)
+            G = []
+            for _ in range(N):
+                G.append([ord(c) for c in input()])
 
-            for _ in range(M):
-                E = [int(i) for i in input().split()]
-                G[E[0]].add(E[1])
-                G[E[1]].add(E[0])
-
-            S    = int(input())
-
-            D    = breadth_first_search(S, N, G, 6)
-            print(' '.join(str(D[n]) for n in range(1, N + 1) if n != S))
+            print(grid_challenge(N, G))
 
 
     if __name__ == "__main__":
@@ -53,32 +40,32 @@ from collections import defaultdict, deque
 
 '''
 
-def grid_challenge():
-    return -1
+def grid_challenge(N, G):
+    G[0].sort()
+
+    for i in range(1, N):
+        G[i].sort()
+        for j in range(N):
+            if G[i - 1][j] > G[i][j]:
+                return 'NO'
+
+    return 'YES'
 
 
 def main(argv):
-    lines = files.read_lines_of_ints(argv[0])
+    lines = files.read_lines(argv[0])
 
-    T     = lines[0][0]
-    C     = 0
+    T     = int(lines[0])
+    C     = 1
 
     for _ in range(T):
-        C   += 1
-        N, M = lines[C]
+        N  = int(lines[C])
+        C += 1
 
-        C   += 1
-        G    = defaultdict(set)
+        G  = [[ord(c) for c in line] for line in lines[C:C + N]]
+        C += N
 
-        for line in lines[C:C + M]:
-            G[line[0]].add(line[1])
-            G[line[1]].add(line[0])
-
-        C   += M
-        S    = lines[C][0]
-
-        D    = breadth_first_search(S, N, G, 6)
-        print(' '.join(str(D[n]) for n in range(1, N + 1) if n != S))
+        print(grid_challenge(N, G))
 
 
 if __name__ == "__main__":
