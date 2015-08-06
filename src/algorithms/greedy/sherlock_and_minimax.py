@@ -4,8 +4,6 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '../../tools'))
 
 import files
 
-import heapq
-
 
 '''
     submitted code:
@@ -72,23 +70,3 @@ def main(argv):
 
 if __name__ == "__main__":
     main(sys.argv[1:])
-
-
-
-
-
-# def minimax(N, A, P, Q):
-#     V = 0
-#     I = N + 1
-
-#     for i in range(P, Q + 1):
-#         m = []
-#         for a in A:
-#             heapq.heappush(m, abs(a - i))
-
-#         v = heapq.heappop(m)
-#         print(v)
-#         if v > V or v == V and i < I:
-#             V, I = v, i
-
-#     return I
