@@ -22,12 +22,11 @@ import heapq
 
         for a in sorted(A):
             if a - 1 in D:
-                L = D[a - 1]
-                W = heapq.heappop(L)
+                W = heapq.heappop(D[a - 1])
 
                 insert(a, W + 1)
 
-                if not L:
+                if not D[a - 1]:
                     del D[a - 1]
             else:
                 insert(a, 1)
