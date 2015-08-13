@@ -8,44 +8,50 @@ import files
 '''
     submitted code:
 
-    class BIT:
-
-        def __init__(self):
-            self.N = 50010
-            self.T = [0 for _ in range(50010)]
-
-        def get(self, i):
-            return query(i) - query(i - 1)
-
-        def set(self, i, v):
-            update(i, v - self.get(i))
-
-        def update(self, i, v):
-            while i <= self.N:
-                self.T[i] += v
-                self.T[i] %= 1000000007
-                i += (i & -i)
-
-        def read(self, i):
-            S = 0
-            while i > 0:
-                S += self.T[i]
-                S %= 1000000007
-                i -= (i & -i)
-            return S
-
-
     def candles_counting(N, K, A):
+        def read(T, i):
+            s = 0
+            while i > 0:
+                s += T[i]
+                s %= 1000000007
+                i -= (i & -i)
+            return s
+
+        def update(T, i, v):
+            while i <= 50010:
+                T[i] += v
+                T[i] %= 1000000007
+                i    += (i & -i)
+            return v
+
+        def count_bits(b):
+            c = 0
+            while b:
+                b &= b - 1
+                c += 1
+            return c
+
         L = 2 ** K
-        T = [BIT() for _ in range(L)]
+        R = 0
 
-        T[0].update(1, 1)
+        for i in range(L):
+            T = [0 for _ in range(50010)]
+            t = 0
 
-        for h, c in A:
-            for j in range(L):
-                T[j | (2 ** (c - 1))].update(h + 1, T[j].read(h))
+            for j in range(N):
+                h, c = A[j]
+                if (i >> (c - 1)) & 1:
+                    t += update(T, h, read(T, h - 1) + 1)
+                    t %= 1000000007
 
-        return T[L - 1].read(50001)
+            if count_bits(i) % 2 == K % 2:
+                R += t
+                R %= 1000000007
+            else:
+                R -= t
+                R %= 1000000007
+
+        return R
 
 
     def main():
@@ -62,45 +68,50 @@ import files
 
 '''
 
-class BIT:
-
-    def __init__(self):
-        self.N = 50010
-        self.T = [0 for _ in range(50010)]
-
-    def get(self, i):
-        return self.query(i) - self.query(i - 1)
-
-    def set(self, i, v):
-        self.update(i, v - self.get(i))
-
-    def update(self, i, v):
-        while i <= self.N:
-            self.T[i] += v
-            self.T[i] %= 1000000007
-            i += (i & -i)
-
-    def read(self, i):
-        S = 0
-        while i > 0:
-            S += self.T[i]
-            S %= 1000000007
-            i -= (i & -i)
-        return S
-
-
 def candles_counting(N, K, A):
+    def read(T, i):
+        s = 0
+        while i > 0:
+            s += T[i]
+            s %= 1000000007
+            i -= (i & -i)
+        return s
+
+    def update(T, i, v):
+        while i <= 50010:
+            T[i] += v
+            T[i] %= 1000000007
+            i    += (i & -i)
+        return v
+
+    def count_bits(b):
+        c = 0
+        while b:
+            b &= b - 1
+            c += 1
+        return c
+
     L = 2 ** K
-    T = [BIT() for _ in range(L)]
+    R = 0
 
-    T[0].update(1, 1)
+    for i in range(L):
+        T = [0 for _ in range(50010)]
+        t = 0
 
-    for i in range(N):
-        h, c = A[i]
-        for j in range(L):
-            T[j | (2 ** (c - 1))].update(h + 1, T[j].read(h))
+        for j in range(N):
+            h, c = A[j]
+            if (i >> (c - 1)) & 1:
+                t += update(T, h, read(T, h - 1) + 1)
+                t %= 1000000007
 
-    return T[L - 1].read(50001)
+        if count_bits(i) % 2 == K % 2:
+            R += t
+            R %= 1000000007
+        else:
+            R -= t
+            R %= 1000000007
+
+    return R
 
 
 def main(argv):
