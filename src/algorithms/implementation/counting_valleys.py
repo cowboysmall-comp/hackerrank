@@ -8,7 +8,7 @@ import files
 '''
     submitted code:
 
-    def countingValleys(n, s):
+    def counting_valleys(n, s):
         level = 0
         count = 0
 
@@ -27,7 +27,7 @@ import files
         n = int(input())
         s = input()
 
-        print(countingValleys(n, s))
+        print(counting_valleys(n, s))
 
 
     if __name__ == "__main__":
