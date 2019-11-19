@@ -5,24 +5,22 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '../../tools'))
 import files
 
 
-from collections import Counter
-
-
 '''
     submitted code:
 
     def migratory_birds(arr):
-        C = Counter(arr)
-        F = sorted(list(zip(C.keys(), C.values())), key = lambda e: (-e[1], e[0]))
+        V = [0] * 5
+        for a in arr:
+            V[a - 1] += 1
 
-        return F[0][0]
+        return V.index(max(V)) + 1
 
 
     def main():
-        n = int(input())
-        a = list(map(int, input().rstrip().split()))
+        input()
+        arr = list(map(int, input().rstrip().split()))
 
-        print(migratory_birds(a))
+        print(migratory_birds(arr))
 
 
     if __name__ == "__main__":
@@ -32,11 +30,11 @@ from collections import Counter
 
 
 def migratory_birds(arr):
-    C = Counter(arr)
-    F = sorted(list(zip(C.keys(), C.values())), key = lambda e: (-e[1], e[0]))
+    V = [0] * 5
+    for a in arr:
+        V[a - 1] += 1
 
-    return F[0][0]
-
+    return V.index(max(V)) + 1
 
 
 def main(argv):
