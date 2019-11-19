@@ -1,6 +1,6 @@
 import os
 import sys
-sys.path.append(os.path.join(os.path.dirname(__file__), '../../tools'))
+sys.path.append(os.path.join(os.path.dirname(__file__), '../../../tools'))
 
 import files
 
@@ -25,7 +25,7 @@ import files
         for _ in range(T):
             point = [int(val) for val in input().split()]
             points.append(point)
-        
+
         print('\n'.join(str(val) for val in service_lane(W, points)))
 
 

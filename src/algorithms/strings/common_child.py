@@ -1,12 +1,12 @@
 import os
 import sys
-sys.path.append(os.path.join(os.path.dirname(__file__), '../../tools'))
+sys.path.append(os.path.join(os.path.dirname(__file__), '../../../tools'))
 
 import files
 
 
 '''
-    submitted code: 
+    submitted code:
 
     def common_child(s, t):
         m = len(s)

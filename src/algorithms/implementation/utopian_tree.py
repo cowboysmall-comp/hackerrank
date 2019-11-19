@@ -1,6 +1,6 @@
 import os
 import sys
-sys.path.append(os.path.join(os.path.dirname(__file__), '../../tools'))
+sys.path.append(os.path.join(os.path.dirname(__file__), '../../../tools'))
 
 import files
 
@@ -16,7 +16,7 @@ import files
                 height *= 2
             else:
                 height += 1
-                
+
         return height
 
 
@@ -40,7 +40,7 @@ def grow(cycles):
             height *= 2
         else:
             height += 1
-            
+
     return height
 
 

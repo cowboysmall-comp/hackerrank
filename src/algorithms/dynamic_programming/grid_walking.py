@@ -1,6 +1,6 @@
 import os
 import sys
-sys.path.append(os.path.join(os.path.dirname(__file__), '../../tools'))
+sys.path.append(os.path.join(os.path.dirname(__file__), '../../../tools'))
 
 import files
 
@@ -23,7 +23,7 @@ import files
                         T[k][j] += T[k - 1][j - 1]
                         T[k][j] %= 1000000007
                     if k + 1 <= D[i]:
-                        T[k][j] += T[k + 1][j - 1] 
+                        T[k][j] += T[k + 1][j - 1]
                         T[k][j] %= 1000000007
 
             W[i + 1][0] = 1
@@ -98,7 +98,7 @@ def moves(N, M, X, D):
                     T[k][j] += T[k - 1][j - 1]
                     T[k][j] %= 1000000007
                 if k + 1 <= D[i]:
-                    T[k][j] += T[k + 1][j - 1] 
+                    T[k][j] += T[k + 1][j - 1]
                     T[k][j] %= 1000000007
 
         W[i + 1][0] = 1

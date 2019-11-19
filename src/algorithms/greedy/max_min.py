@@ -1,6 +1,6 @@
 import os
 import sys
-sys.path.append(os.path.join(os.path.dirname(__file__), '../../tools'))
+sys.path.append(os.path.join(os.path.dirname(__file__), '../../../tools'))
 
 import files
 
@@ -25,7 +25,7 @@ import files
         array = []
         for i in range(N):
             array.append(int(input()))
-        
+
         print(minimum_unfairness(array, K))
 
 

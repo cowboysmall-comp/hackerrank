@@ -1,6 +1,6 @@
 import os
 import sys
-sys.path.append(os.path.join(os.path.dirname(__file__), '../../tools'))
+sys.path.append(os.path.join(os.path.dirname(__file__), '../../../tools'))
 
 import files
 
@@ -53,7 +53,7 @@ def maximise_sum(A, N, M):
         V %= M
 
         # the case of P[j] = 0, max(S, V) is
-        # unnecessary, because of the presence 
+        # unnecessary, because of the presence
         # of M in B - i.e. M % M == 0
         # so it is handled automatically
         # S = max(S, V)

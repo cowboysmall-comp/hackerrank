@@ -1,6 +1,6 @@
 import os
 import sys
-sys.path.append(os.path.join(os.path.dirname(__file__), '../../tools'))
+sys.path.append(os.path.join(os.path.dirname(__file__), '../../../tools'))
 
 import files
 
@@ -19,7 +19,7 @@ import files
 
     def main():
         A, B, N = [int(i) for i in input().split()]
-        
+
         print(fibonacci_modified(A, B, N))
 
 

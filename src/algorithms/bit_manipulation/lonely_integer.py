@@ -1,6 +1,6 @@
 import os
 import sys
-sys.path.append(os.path.join(os.path.dirname(__file__), '../../tools'))
+sys.path.append(os.path.join(os.path.dirname(__file__), '../../../tools'))
 
 import files
 
@@ -12,7 +12,7 @@ from collections import defaultdict
 
     def lonely_integer(array):
         counter = defaultdict(int)
-        
+
         for value in array:
             counter[value] += 1
 
@@ -31,7 +31,7 @@ from collections import defaultdict
 
 def lonely_integer(array):
     counter = defaultdict(int)
-    
+
     for value in array:
         counter[value] += 1
 

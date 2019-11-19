@@ -1,6 +1,6 @@
 import os
 import sys
-sys.path.append(os.path.join(os.path.dirname(__file__), '../../tools'))
+sys.path.append(os.path.join(os.path.dirname(__file__), '../../../tools'))
 
 import files
 
@@ -11,7 +11,7 @@ import files
     def merge(A, B):
         m = len(A)
         n = len(B)
-        i = 0 
+        i = 0
         j = 0
 
         M = []
@@ -69,7 +69,7 @@ import files
 
 
 
-    A clean, but unusable solution - currently very slow and uses way 
+    A clean, but unusable solution - currently very slow and uses way
     too much memory:
 
     def reverse_suffix_array(string):
@@ -89,7 +89,7 @@ import files
 
         m   = len(A)
         n   = len(B)
-        i   = 0 
+        i   = 0
         j   = 0
 
         M   = []
@@ -129,7 +129,7 @@ import files
 def merge(A, B):
     m = len(A)
     n = len(B)
-    i = 0 
+    i = 0
     j = 0
 
     M = []

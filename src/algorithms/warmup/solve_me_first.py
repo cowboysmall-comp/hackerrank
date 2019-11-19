@@ -1,6 +1,6 @@
 import os
 import sys
-sys.path.append(os.path.join(os.path.dirname(__file__), '../../tools'))
+sys.path.append(os.path.join(os.path.dirname(__file__), '../../../tools'))
 
 import files
 
@@ -26,7 +26,7 @@ import files
 
 def solve_me_first(a, b):
     return a + b
-    
+
 
 def main(argv):
     lines = files.read_ints(argv[0])

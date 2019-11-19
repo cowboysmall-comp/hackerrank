@@ -1,6 +1,6 @@
 import os
 import sys
-sys.path.append(os.path.join(os.path.dirname(__file__), '../../tools'))
+sys.path.append(os.path.join(os.path.dirname(__file__), '../../../tools'))
 
 import files
 
@@ -11,7 +11,7 @@ import files
     def cost(N, B):
         L = 0
         H = 0
-        
+
         for i in range(1, N):
             l = max(H + abs(B[i - 1] - 1),    L)
             h = max(H + abs(B[i] - B[i - 1]), L + abs(B[i] - 1))
@@ -50,7 +50,7 @@ import files
 def cost(N, B):
     L = 0
     H = 0
-    
+
     for i in range(1, N):
         l = max(H + abs(B[i - 1] - 1),    L)
         h = max(H + abs(B[i] - B[i - 1]), L + abs(B[i] - 1))

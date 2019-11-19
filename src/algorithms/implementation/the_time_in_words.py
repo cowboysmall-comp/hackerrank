@@ -1,6 +1,6 @@
 import os
 import sys
-sys.path.append(os.path.join(os.path.dirname(__file__), '../../tools'))
+sys.path.append(os.path.join(os.path.dirname(__file__), '../../../tools'))
 
 import files
 
@@ -10,11 +10,11 @@ import files
 
     def time_in_words(H, M):
         words = [
-            'one', 'two', 'three', 'four', 'five', 
-            'six', 'seven', 'eight', 'nine', 'ten', 
-            'eleven', 'twelve', 'thirteen', 'fourteen', 'quarter', 
-            'sixteen', 'seventeen', 'eighteen', 'nineteen', 'twenty', 
-            'twenty one', 'twenty two', 'twenty three', 'twenty four', 'twenty five', 
+            'one', 'two', 'three', 'four', 'five',
+            'six', 'seven', 'eight', 'nine', 'ten',
+            'eleven', 'twelve', 'thirteen', 'fourteen', 'quarter',
+            'sixteen', 'seventeen', 'eighteen', 'nineteen', 'twenty',
+            'twenty one', 'twenty two', 'twenty three', 'twenty four', 'twenty five',
             'twenty six', 'twenty seven', 'twenty eight', 'twenty nine', 'half'
         ]
         if H > 12:
@@ -52,11 +52,11 @@ import files
 
 def time_in_words(H, M):
     words = [
-        'one', 'two', 'three', 'four', 'five', 
-        'six', 'seven', 'eight', 'nine', 'ten', 
-        'eleven', 'twelve', 'thirteen', 'fourteen', 'quarter', 
-        'sixteen', 'seventeen', 'eighteen', 'nineteen', 'twenty', 
-        'twenty one', 'twenty two', 'twenty three', 'twenty four', 'twenty five', 
+        'one', 'two', 'three', 'four', 'five',
+        'six', 'seven', 'eight', 'nine', 'ten',
+        'eleven', 'twelve', 'thirteen', 'fourteen', 'quarter',
+        'sixteen', 'seventeen', 'eighteen', 'nineteen', 'twenty',
+        'twenty one', 'twenty two', 'twenty three', 'twenty four', 'twenty five',
         'twenty six', 'twenty seven', 'twenty eight', 'twenty nine', 'half'
     ]
     if H > 12:

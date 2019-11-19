@@ -1,6 +1,6 @@
 import os
 import sys
-sys.path.append(os.path.join(os.path.dirname(__file__), '../../tools'))
+sys.path.append(os.path.join(os.path.dirname(__file__), '../../../tools'))
 
 import files
 
@@ -15,9 +15,9 @@ import files
             if ((N - (5 * i)) % 3) == 0:
                 j = (N - (5 * i)) // 3
                 return '5' * (j * 3) + '3' * (i * 5)
-                
+
             i += 1
-        
+
         return '-1'
 
 
@@ -58,9 +58,9 @@ def decent_number(N):
         if ((N - (5 * i)) % 3) == 0:
             j = (N - (5 * i)) // 3
             return '5' * (j * 3) + '3' * (i * 5)
-            
+
         i += 1
-    
+
     return '-1'
 
 

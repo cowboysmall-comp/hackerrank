@@ -1,6 +1,6 @@
 import os
 import sys
-sys.path.append(os.path.join(os.path.dirname(__file__), '../../tools'))
+sys.path.append(os.path.join(os.path.dirname(__file__), '../../../tools'))
 
 import files
 
@@ -9,7 +9,7 @@ import files
     submitted code:
 
     class UnionFind:
-        
+
         def __init__(self, N):
             self.N = N
             self.P = [i for i in range(N)]
@@ -68,7 +68,7 @@ import files
 '''
 
 class UnionFind:
-    
+
     def __init__(self, N):
         self.N = N
         self.P = [i for i in range(N)]

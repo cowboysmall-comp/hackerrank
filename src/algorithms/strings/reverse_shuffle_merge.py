@@ -1,6 +1,6 @@
 import os
 import sys
-sys.path.append(os.path.join(os.path.dirname(__file__), '../../tools'))
+sys.path.append(os.path.join(os.path.dirname(__file__), '../../../tools'))
 
 import files
 
@@ -8,7 +8,7 @@ from collections import defaultdict
 
 
 '''
-    submitted code: 
+    submitted code:
 
     def find(S):
         length = len(S)

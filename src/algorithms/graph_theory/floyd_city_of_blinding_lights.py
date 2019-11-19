@@ -1,6 +1,6 @@
 import os
 import sys
-sys.path.append(os.path.join(os.path.dirname(__file__), '../../tools'))
+sys.path.append(os.path.join(os.path.dirname(__file__), '../../../tools'))
 
 import files
 
@@ -12,7 +12,7 @@ import files
         for k in range(N):
             for i in range(N):
 
-                if G[i][k] == 999999: 
+                if G[i][k] == 999999:
                     continue
 
                 V = G[i][k]
@@ -56,7 +56,7 @@ def floyd(N, G):
     for k in range(N):
         for i in range(N):
 
-            if G[i][k] == 999999: 
+            if G[i][k] == 999999:
                 continue
 
             V = G[i][k]
