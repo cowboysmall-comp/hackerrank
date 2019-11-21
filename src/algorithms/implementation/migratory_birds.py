@@ -9,11 +9,11 @@ import files
     submitted code:
 
     def migratory_birds(arr):
-        V = [0] * 5
+        V = [0] * 6
         for a in arr:
-            V[a - 1] += 1
+            V[a] += 1
 
-        return V.index(max(V)) + 1
+        return V.index(max(V))
 
 
     def main():
@@ -30,11 +30,11 @@ import files
 
 
 def migratory_birds(arr):
-    V = [0] * 5
+    V = [0] * 6
     for a in arr:
-        V[a - 1] += 1
+        V[a] += 1
 
-    return V.index(max(V)) + 1
+    return V.index(max(V))
 
 
 def main(argv):
